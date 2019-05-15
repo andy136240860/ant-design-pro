@@ -24,7 +24,11 @@ export default [
     Routes: ['src/pages/Authorized'],
     routes: [
       // dashboard
-      { path: '/', redirect: '/dashboard/analysis', authority: ['admin', 'user'] },
+      {
+        path: '/',
+        redirect: '/dashboard/analysis',
+        // authority: ['admin', 'user']
+      },
       {
         path: '/dashboard',
         name: 'dashboard',
@@ -88,7 +92,7 @@ export default [
           {
             path: '/form/advanced-form',
             name: 'advancedform',
-            authority: ['admin'],
+            // authority: ['admin'],
             component: './Forms/AdvancedForm',
           },
         ],
@@ -162,7 +166,7 @@ export default [
           {
             path: '/profile/advanced',
             name: 'advanced',
-            authority: ['admin'],
+            // authority: ['admin'],
             component: './Profile/AdvancedProfile',
           },
         ],
@@ -291,7 +295,21 @@ export default [
         ],
       },
       {
-        component: '404',
+        name: 'information',
+        icon: 'highlight',
+        path: '/informations',
+        routes: [
+          {
+            path: '/informations',
+            name: '资讯列表',
+            component: './Information/list',
+          },
+          {
+            path: '/informations/:id',
+            // name: '资讯列表',
+            component: './Information/detail',
+          },
+        ],
       },
     ],
   },

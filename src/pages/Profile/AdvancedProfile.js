@@ -225,6 +225,10 @@ class AdvancedProfile extends Component {
     }
   }
 
+  tabChange = e => {
+    console.log(e);
+  };
+
   render() {
     const { stepDirection, operationkey } = this.state;
     const { profile, loading } = this.props;
@@ -266,6 +270,7 @@ class AdvancedProfile extends Component {
         content={description}
         extraContent={extra}
         tabList={tabList}
+        onTabChange={this.tabChange}
       >
         <Card title="流程进度" style={{ marginBottom: 24 }} bordered={false}>
           <Steps direction={stepDirection} progressDot={customDot} current={1}>
