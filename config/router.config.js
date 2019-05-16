@@ -309,6 +309,11 @@ export default [
             // name: '资讯列表',
             component: './Information/detail',
           },
+          {
+            path: '/informations/new',
+            // name: '资讯列表',
+            component: './Information/detail',
+          },
         ],
       },
     ],

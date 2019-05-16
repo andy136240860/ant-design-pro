@@ -672,6 +672,12 @@ class TableList extends PureComponent {
               columns={this.columns}
               onSelectRow={this.handleSelectRows}
               onChange={this.handleStandardTableChange}
+              expandedRowRender={record => <p style={{ margin: 0 }}>12313213123131231131</p>}
+              defaultExpandAllRows={true}
+              expandRowByClick
+              defaultExpandedRowKeys={['name','name']}
+              // expandedRowKeys={['name','name']}
+              expandIconAsCell={false}
             />
           </div>
         </Card>

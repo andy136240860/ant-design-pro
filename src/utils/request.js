@@ -66,10 +66,6 @@ const errorHandler = error => {
 const request = extend({
   errorHandler, // 默认错误处理
   credentials: 'include', // 默认请求是否带上cookie
-  interceptors: {
-    request: { url: 'http://localhost:8081' },
-  },
-  url: 'http://localhost:8081',
 });
 
 export default request;

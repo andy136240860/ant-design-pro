@@ -1,4 +1,4 @@
-import { queryIndex, queryDetail } from '@/services/information';
+import { queryIndex, queryDetail ,edit, creat} from '@/services/information';
 
 export default {
   namespace: 'information',
@@ -19,6 +19,24 @@ export default {
     *show({ payload, callback }, { call, put }) {
       console.info(payload);
       const response = yield call(queryDetail, payload);
+      yield put({
+        type: 'queryDetail',
+        payload: response.data,
+      });
+      if (callback) callback(response);
+    },
+    *edit({ payload, callback }, { call, put }) {
+      console.info(payload);
+      const response = yield call(edit, payload);
+      yield put({
+        type: 'queryDetail',
+        payload: response.data,
+      });
+      if (callback) callback(response);
+    },
+    *creat({ payload, callback }, { call, put }) {
+      console.info(payload);
+      const response = yield call(creat, payload);
       yield put({
         type: 'queryDetail',
         payload: response.data,
