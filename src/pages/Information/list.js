@@ -106,7 +106,6 @@ class UpdateForm extends PureComponent {
     });
   };
 
-
   render() {
     const { updateModalVisible, handleUpdateModalVisible, values } = this.props;
     const { currentStep, formVals } = this.state;
@@ -246,6 +245,10 @@ class TableList extends PureComponent {
     }).then(response => {
       console.info(response, this.props);
     });
+  };
+
+  creatNewInformation = () => {
+    router.push(`/informations/new`);
   };
 
   previewItem = id => {
