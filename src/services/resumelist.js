@@ -1,4 +1,4 @@
-import request from '../utils/request';
+import request from '@/utils/request';
 import { stringify } from 'qs';
 // new 2018.11.23新接口
 // 项目中简历状态流程

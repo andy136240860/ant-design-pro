@@ -1,5 +1,5 @@
 import { routerRedux } from 'dva/router';
-import { login } from '../services/login';
+import { login } from '@/services/login';
 import { setAuthority, getAuthority, clearAuthority } from '../utils/authority';
 import { reloadAuthorized } from '../utils/Authorized';
 import { getPageQuery } from '../utils/utils';

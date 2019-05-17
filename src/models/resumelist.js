@@ -15,7 +15,7 @@ import {
   upcall,
   upimportant,
   getcall,
-} from '../services/resumelist';
+} from '@/services/resumelist';
 
 export default {
   namespace: 'resumelist',
