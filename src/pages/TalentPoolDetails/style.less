@@ -1,0 +1,366 @@
+@import "~antd/lib/style/themes/default.less";
+@import '~@/utils/utils.less';
+
+ul{
+  padding: 0;
+}
+.edit{
+  // height: 220px !important;
+}
+.remark{
+  height: 150px !important;
+}
+.drawderCheckbox{
+ height: 32px;
+ display: flex;
+ flex-direction: row-reverse;
+ align-items: center;
+}
+.selectEdu{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  display: inline-block;
+  padding: 4px 11px;
+  width: 100%;
+  height: 32px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+.selectEdu:hover {
+  border-color: #40a9ff;
+  border-right-width: 1px !important;
+}
+
+.jobsContainer{
+  display: flex;
+  .jobsUL{
+    display: flex;
+    width: 200px;
+  }
+}
+.modalcontent{
+  width: 100%;
+  height: 450px;
+  overflow-y: scroll;
+}
+.industry{
+  display: flex;
+  flex-direction: column;
+ 
+  .industryli{
+    width: 100%;
+    font-size: 12px;
+    min-height: 82px;
+    border-bottom: 1px solid grey;
+    display: flex;
+    justify-content: space-around;
+    .industryTitle{
+      width: 200px;
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+    }
+    .industryContent{
+      display: flex;
+      flex:1;
+      flex-direction: column;
+      .industryContentli{
+        line-height: 30px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        
+      }
+      .industryContentli:hover{
+        background-color: #d5e9f2;
+        transition: background-color linear 0.2s;
+      }
+      .industryContentli label{
+       width: 100%;
+      }
+    }
+  }
+
+}
+
+
+
+
+.pageHeaderContent {
+  position: relative;
+}
+
+
+@media screen and (max-width: @screen-lg) {
+  .contentLink {
+    a {
+      margin-right: 16px;
+    }
+  }
+}
+@media screen and (max-width: @screen-md) {
+  .extraImg {
+    display: none;
+  }
+}
+
+@media screen and (max-width: @screen-sm) {
+  .pageHeaderContent {
+    padding-bottom: 30px;
+  }
+  .contentLink {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 1000px;
+    a {
+      margin-right: 16px;
+    }
+    img {
+      margin-right: 4px;
+    }
+  }
+}
+
+.upCardmain{
+  position: absolute;
+  width:88%;
+  height: 100%;
+  top: 0;
+  left:0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  img{
+    display: flex;
+    margin-left:4px;
+
+    width: 50px;
+    height: 50px;
+  }
+  .content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    
+  }
+  .content div{
+    text-align: center;
+  }
+}
+
+
+.cardList {
+  margin-bottom: -24px;
+
+  .card {
+    :global {
+      .ant-card-meta-title {
+        margin-bottom: 12px;
+        & > a {
+          color: @heading-color;
+          display: inline-block;
+          max-width: 100%;
+        }
+      }
+      .ant-card-actions {
+        background: #f7f9fa;
+      }
+      .ant-card-body:hover {
+        .ant-card-meta-title > a {
+          color: @primary-color;
+        }
+      }
+  
+    }
+    
+  }
+
+  :global {
+    .ant-list .ant-list-item-content-single {
+      max-width: 100%;
+    }
+  }
+}
+
+.extraImg {
+  margin-top: -60px;
+  text-align: center;
+  width: 195px;
+  img {
+    width: 100%;
+  }
+}
+
+.newButton {
+  background-color: #fff;
+  border-color: @border-color-base;
+  border-radius: @border-radius-sm;
+  color: @text-color-secondary;
+  width: 100%;
+  height: 188px;
+  .ant-upload.ant-upload-drag{
+    height: 234px;
+  }
+
+}
+.cardAvatar {
+  width: 48px;
+}
+
+.cardDescription {
+  .textOverflowMulti();
+}
+
+
+
+.contentLink {
+  margin-top: 16px;
+  a {
+    margin-right: 32px;
+    img {
+      width: 24px;
+    }
+  }
+  img {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+}
+
+
+.infoWarning{
+  border: 1px solid #faad14;
+}
+.infoFonts{
+  color: #faad14;
+}
+.warning{
+  border-color: #faad14;
+
+}
+.selectEduWarning{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  display: inline-block;
+  padding: 4px 11px;
+  width: 100%;
+  height: 32px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  border-color: #faad14;
+}
+
+.basicInfoItme{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  .basicInfoFont{
+    display: flex;
+    color: rgba(0, 0, 0, 0.85);
+  }
+  .basicInfoFontRed{
+    color: #f5222d;
+  }
+}
+.cardTitle{
+  min-height: 36px;
+  border-bottom: 1px solid #e8e8e8;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+
+
+
+.listContent {
+  .description {
+    text-indent: 2em;
+    line-height: 22px;
+    width: 100%;
+  }
+  .extra {
+    color: @text-color-secondary;
+    margin-top: 16px;
+    line-height: 22px;
+    & > :global(.ant-avatar) {
+      vertical-align: top;
+      margin-right: 8px;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      top: 1px;
+    }
+    & > em {
+      color: @disabled-color;
+      font-style: normal;
+      margin-left: 16px;
+    }
+  }
+}
+a.listItemMetaTitle {
+  color: @heading-color;
+}
+.listItemExtra {
+  width: 272px;
+  height: 1px;
+}
+.selfTrigger {
+  margin-left: 12px;
+}
+
+@media screen and (max-width: @screen-xs) {
+  .selfTrigger {
+    display: block;
+    margin-left: 0;
+  }
+  .listContent {
+    .extra {
+      & > em {
+        display: block;
+        margin-left: 0;
+        margin-top: 8px;
+      }
+    }
+  }
+}
+@media screen and (max-width: @screen-md) {
+  .selfTrigger {
+    display: block;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: @screen-lg) {
+  .listItemExtra {
+    width: 0;
+    height: 1px;
+  }
+}

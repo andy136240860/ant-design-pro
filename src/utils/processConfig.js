@@ -1,0 +1,17 @@
+export const processCon = [
+  { value: 0, color: '#E1E1E1', label: '不看机会' },
+  { value: 1, color: '#7FC2FF', label: '看机会' },
+  { value: 2, color: '#FFA9A9', label: '未接通' },
+  { value: 3, color: '#7ED321', label: '已推荐' },
+  { value: 4, color: '#7ED321', label: '接offer' },
+  { value: 5, color: '#717171', label: '拒offer' },
+  { value: 6, color: '#1890FF', label: '入职' },
+  { value: 7, color: '#7ED321', label: '过试用期' },
+  { value: 8, color: '#4A4A4A ', label: '黑名单' },
+  { value: 101, color: '#F8E71C', label: '一面' },
+  { value: 102, color: '#F8D91C', label: '二面' },
+  { value: 103, color: '#F8CE1C', label: '三面' },
+  { value: 104, color: '#F8B71C', label: '四面' },
+  { value: 105, color: '#F5A623', label: '五面' },
+  { value: 151, color: '#F5A623', label: '其他面' },
+];

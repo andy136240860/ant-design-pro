@@ -1,4 +1,4 @@
-import { queryNotices } from '@/services/api';
+import { queryNotices } from '../services/api';
 
 export default {
   namespace: 'global',
@@ -9,21 +9,15 @@ export default {
   },
 
   effects: {
-    *fetchNotices(_, { call, put, select }) {
+    *fetchNotices(_, { call, put }) {
       const data = yield call(queryNotices);
       yield put({
         type: 'saveNotices',
         payload: data,
       });
-      const unreadCount = yield select(
-        state => state.global.notices.filter(item => !item.read).length
-      );
       yield put({
         type: 'user/changeNotifyCount',
-        payload: {
-          totalCount: data.length,
-          unreadCount,
-        },
+        payload: data.length,
       });
     },
     *clearNotices({ payload }, { put, select }) {
@@ -32,37 +26,9 @@ export default {
         payload,
       });
       const count = yield select(state => state.global.notices.length);
-      const unreadCount = yield select(
-        state => state.global.notices.filter(item => !item.read).length
-      );
       yield put({
         type: 'user/changeNotifyCount',
-        payload: {
-          totalCount: count,
-          unreadCount,
-        },
-      });
-    },
-    *changeNoticeReadState({ payload }, { put, select }) {
-      const notices = yield select(state =>
-        state.global.notices.map(item => {
-          const notice = { ...item };
-          if (notice.id === payload) {
-            notice.read = true;
-          }
-          return notice;
-        })
-      );
-      yield put({
-        type: 'saveNotices',
-        payload: notices,
-      });
-      yield put({
-        type: 'user/changeNotifyCount',
-        payload: {
-          totalCount: notices.length,
-          unreadCount: notices.filter(item => !item.read).length,
-        },
+        payload: count,
       });
     },
   },

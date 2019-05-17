@@ -291,6 +291,43 @@ export default [
         ],
       },
       {
+        name: '人才库',
+        icon: 'highlight',
+        path: '/resumes',
+        routes: [
+          {
+            path: '/resumes/my',
+            name: '我的人才',
+            component: './ResumeLibrary/MyResumeTableList',
+          },
+          {
+            path: '/resumes/unparsed',
+            name: '批量上传人才',
+            component: './ResumeLibrary/UnparsedResumeTableList',
+          },
+          {
+            path: '/resumes/parsefailure',
+            name: '解析失败',
+            component: './ResumeLibrary/NotParsingResumeTableList',
+          },
+          {
+            path: '/resumes/all',
+            name: '全部人才',
+            component: './ResumeLibrary/ResumeTableList',
+          },
+          {
+            path: '/resumes/calllist',
+            name: 'Call List',
+            component: './ResumeLibrary/ColdList',
+          },
+          {
+            path: '/resumes/dev',
+            name: '开发简历',
+            component: './ResumeLibrary/ResumeTableListDev',
+          },
+        ],
+      },
+      {
         component: '404',
       },
     ],

@@ -1,25 +1,99 @@
+import fetch from 'dva/fetch';
+import request from './request';
+import { getCookie } from './helper';
+
 // use localStorage to store the authority info, which might be sent from server in actual project.
-export function getAuthority(str) {
-  // return localStorage.getItem('antd-pro-authority') || ['admin', 'user'];
-  const authorityString =
-    typeof str === 'undefined' ? localStorage.getItem('antd-pro-authority') : str;
-  // authorityString could be admin, "admin", ["admin"]
-  let authority;
+// let curAuthority = 'guest';
+export function getAuthority() {
+ // console.info(localStorage.getItem('authority'));
+  // let cur = localStorage.getItem('authority');
+  // if ()
+  // let t = checkAuthority();
+ // console.info(t);
+  if (!localStorage.authority) {
+    return 'guest';
+  }
   try {
-    authority = JSON.parse(authorityString);
+    const { timestamp, auth } = JSON.parse(localStorage.authority);
+    if (!timestamp || !auth || timestamp + 60 * 60 * 1000000000 < new Date().getTime()) {
+      localStorage.clear();
+      return 'guest';
+    }
+    if (!timestamp || !auth) {
+      localStorage.clear();
+      return 'guest';
+    }
+    // if (!auth) {
+    //   localStorage.clear();
+    //   return 'guest';
+    // }
+    return auth;
   } catch (e) {
-    authority = authorityString;
+    // 不做处理，需要重新登录
+     // console.log(e)
   }
-  if (typeof authority === 'string') {
-    return [authority];
+  return 'guest';
+  // return curAuthority;
+}
+
+export function getUserInfo() {
+  if (!localStorage.authority) {
+    return null;
   }
-  // preview.pro.ant.design only do not use in your production ; preview.pro.ant.design 专用环境变量，请不要在你的项目中使用它。
-  if (!authority && ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site') {
-    return ['admin'];
+  try {
+    const { userInfo } = JSON.parse(localStorage.authority);
+    if (!userInfo) {
+      localStorage.clear();
+      return null;
+    }
+    return userInfo;
+  } catch (e) {
+    // 不做处理，需要重新登录
   }
+  return null;
+  // return curAuthority;
+}
+// setAuthority('guest');
+export function setAuthority(authority, userInfo) {
+  // curAuthority = authority;
+  // return curAuthority;
+  // return localStorage.setItem('authority', authority);
+  localStorage.authority = JSON.stringify({
+    timestamp: new Date().getTime(),
+    auth: authority,
+    userInfo: userInfo,
+  });
   return authority;
 }
-export function setAuthority(authority) {
-  const proAuthority = typeof authority === 'string' ? [authority] : authority;
-  return localStorage.setItem('antd-pro-authority', JSON.stringify(proAuthority));
+
+export function clearAuthority() {
+  localStorage.clear();
 }
+
+const url = 'http://admin.doctor.alpha.flashdiet.cn/api/user/info';
+async function checkAuthority() {
+  fetch(url, {
+    credentials: 'include',
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'X-XSRF-TOKEN': getCookie('XSRF-TOKEN'),
+    },
+  })
+    .then(response => {
+       // console.log(response)
+     // console.info(response.text());
+      // let t = JSON.parse(response.text());
+      // if (t && t.data && t.status === 0) {
+      //   return (t.data.type === 0 ? 'admin' : 'guest');
+      // }
+      return response.json();
+    })
+    .catch(e => {
+       // console.info(e);
+      localStorage.clear();
+      return 'guest';
+    });
+}
+
+//  // console.info(checkAuthority);
+// export default checkAuthority;

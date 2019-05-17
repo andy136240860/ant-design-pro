@@ -1,14 +1,48 @@
-import { query as queryUsers, queryCurrent } from '@/services/user';
+import { query as queryUsers, queryCurrent, checkuser,updateUser ,enableUser} from '../services/user';
 
 export default {
   namespace: 'user',
 
   state: {
-    list: [],
+    data: {
+      list: [],
+      pagination: {},
+    },
     currentUser: {},
+    status: 0,
+    message: null,
+    errors: null,
+    register: {},
   },
 
   effects: {
+    *checkuser({ payload }, { call, put }) {
+      const response = yield call(checkuser,payload);
+      yield put({
+        type: 'saveCheckuser',
+        payload: response,
+      });
+    },
+
+    *updateUser({ payload , callback }, { call, put }) {
+      const response = yield call(updateUser,payload);
+      yield put({
+        type: 'save',
+        payload: response,
+      });
+      if (callback) callback(response);
+    },
+
+    *enableUser({ payload , callback }, { call, put }) {
+    const response = yield call(enableUser,payload);
+      yield put({
+        type: 'save',
+        payload: response,
+      });
+      if (callback) callback(response);
+    },
+
+
     *fetch(_, { call, put }) {
       const response = yield call(queryUsers);
       yield put({
@@ -26,6 +60,12 @@ export default {
   },
 
   reducers: {
+    saveCheckuser(state, action) {
+      return {
+        ...state,
+        data: action.payload.data,
+      };
+    },
     save(state, action) {
       return {
         ...state,
@@ -43,8 +83,7 @@ export default {
         ...state,
         currentUser: {
           ...state.currentUser,
-          notifyCount: action.payload.totalCount,
-          unreadCount: action.payload.unreadCount,
+          notifyCount: action.payload,
         },
       };
     },

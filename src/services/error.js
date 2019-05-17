@@ -1,5 +1,5 @@
-import request from '@/utils/request';
+import request from '../utils/request';
 
-export default async function queryError(code) {
+export async function query(code) {
   return request(`/api/${code}`);
 }
