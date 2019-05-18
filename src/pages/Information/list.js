@@ -321,6 +321,33 @@ class TableList extends PureComponent {
     });
   };
 
+  deleteDataAction = () => {
+    var that = this;
+    const { selectedRows} = this.state;
+    const { dispatch } = this.props;
+
+    let idArr = [];
+    selectedRows.forEach(element => {
+      console.info(element);
+      idArr.push(element.id);
+    });
+
+  
+    if(idArr.length) {
+      let ids = idArr.join(';');
+      dispatch({
+        type: 'information/delete',
+        payload: {
+          id: ids,
+        },
+        callback: (response) => {
+          console.info(response,that);
+          that.handleStandardTableChange({},{},{});
+        }
+      })
+    }
+  }
+
   render() {
     const {
       information: { informationlist },
@@ -349,7 +376,7 @@ class TableList extends PureComponent {
                 <span>
                   <Button>显示</Button>
                   <Button>隐藏</Button>
-                  <Button>删除</Button>
+                  <Button onClick={this.deleteDataAction}>删除</Button>
                 </span>
               )}
             </div>
@@ -360,6 +387,7 @@ class TableList extends PureComponent {
               columns={this.columns}
               onSelectRow={this.handleSelectRows}
               onChange={this.handleStandardTableChange}
+              key={'id'}
             />
           </div>
         </Card>

@@ -25,3 +25,10 @@ export async function creat(params) {
   });
 }
 
+export async function destroy(params) {
+  console.info(params);
+  return request(`/api/v1/informations/${params.id}`,{
+    method: 'DELETE',
+  });
+}
+
