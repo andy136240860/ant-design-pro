@@ -32,6 +32,14 @@ const errorHandler = error => {
   const errortext = codeMessage[response.status] || response.statusText;
   const { status, url } = response;
 
+  console.info('111111111111111111111111111111',response,error);
+
+  if (status === 302) {
+    notification.error({
+      message: '未登录或登录已过期，请重新登录。',
+    });
+  }
+
   if (status === 401) {
     notification.error({
       message: '未登录或登录已过期，请重新登录。',
@@ -64,6 +72,7 @@ const errorHandler = error => {
 /**
  * 配置request请求时的默认参数
  */
+
 const request = extend({
   errorHandler, // 默认错误处理
   credentials: 'include', // 默认请求是否带上cookie

@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'dva';
-import { routerRedux } from 'dva/router';
 import moment from 'moment';
+import router from 'umi/router'
 import { crtTimeFtt } from '../../utils/info';
 // import EditProject from './EditProjectView';
 
@@ -23,8 +23,8 @@ import {
   Badge,
   Divider,
 } from 'antd';
-import StandardTable from 'components/StandardTable';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+import StandardTable from '@/components/StandardTable';
+
 import SearchForm from './Components/SearchFormList';
 import styles from './ProjectTableList.less';
 import { stringify } from 'querystring';
@@ -32,6 +32,7 @@ import { stringify } from 'querystring';
 import ProjectStatusDropDown from './Components/ProjectStatusDropDown';
 import ProjectResumeStatusDropDownmain from './Components/ProjectStatusDropDownmain';
 import { getAuthority, getUserInfo } from '../../utils/authority';
+import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 
 // const EditPro = Form.create()(EditProject);
 const { RangePicker } = DatePicker;
@@ -316,10 +317,7 @@ export default class TableList extends PureComponent {
     let data = {};
     data.projectId = val.id;
     data.projectName = val.name;
-    window.open(`/project/projectresumelist/${val.id}?data=${JSON.stringify(data)}`);
-    // this.props.dispatch(
-    //   routerRedux.push(`/project/projectresumelist/${val.id}?data=${JSON.stringify(data)}`)
-    // );
+    router.push(`/projects/${val.id}?data=${JSON.stringify(data)}`);
   };
 
   handleDeleteResume = val => {
@@ -452,7 +450,7 @@ export default class TableList extends PureComponent {
     };
 
     return (
-      <PageHeaderLayout title="">
+      <PageHeaderWrapper title="">
         <Card bordered={false}>
           <div className={styles.tableList}>
             <div className={styles.tableListOperator}>
@@ -489,7 +487,7 @@ export default class TableList extends PureComponent {
           </div>
         </Card>
         <CreateForm {...parentMethods} modalVisible={modalVisible} />
-      </PageHeaderLayout>
+      </PageHeaderWrapper>
     );
   }
 }

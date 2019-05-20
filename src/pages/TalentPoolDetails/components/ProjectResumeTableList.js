@@ -4,8 +4,8 @@ import { routerRedux } from 'dva/router';
 import moment from 'moment';
 import SettingProjectResumeRemarkModel from '../../privateComponents/SettingProjectResumeRemarkModel';
 import { Card, Form, Input, Select, Button, Menu, Modal, message, Drawer } from 'antd';
-import StandardTable from 'components/StandardTable';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+import StandardTable from '@/components/StandardTable';
+
 
 import styles from './ProjectResumeTableList.less';
 import { retry } from 'rxjs/operator/retry';
@@ -14,6 +14,7 @@ import ProjectResumeStatusDropDown from './Components/ProjectResumeStatusDropDow
 import { ConcurrentRequest } from '../../utils/ConcurrentRequest';
 import { NotificationCenter } from '../../utils/NotificationCenter';
 import { GetQueryString } from '../../utils/info';
+import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 const FormItem = Form.Item;
 const { Option } = Select;
 const getValue = obj =>
@@ -496,7 +497,7 @@ export default class TableList extends PureComponent {
     };
 
     return (
-      <PageHeaderLayout title="">
+      <PageHeaderWrapper title="">
         <Card bordered={false}>
           <div className={styles.tableList}>
             <div className={styles.tableListOperator}>
@@ -525,7 +526,7 @@ export default class TableList extends PureComponent {
           </div>
         </Card>
         <CreateForm {...parentMethods} modalVisible={modalVisible} />
-      </PageHeaderLayout>
+      </PageHeaderWrapper>
     );
   }
 }

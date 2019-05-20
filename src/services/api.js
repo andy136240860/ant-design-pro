@@ -39,7 +39,7 @@ export async function addRule(params) {
 export async function fakeSubmitForm(params) {
   return request('/api/forms', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 
@@ -66,14 +66,14 @@ export async function queryFakeList(params) {
 export async function fakeAccountLogin(params) {
   return request('/api/login/account', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 
 export async function fakeRegister(params) {
   return request('/api/register', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 

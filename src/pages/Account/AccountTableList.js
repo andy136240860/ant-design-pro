@@ -25,10 +25,11 @@ import {
   Radio ,
   Tag,
 } from 'antd';
-import StandardTable from 'components/StandardTable';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+import StandardTable from '@/components/StandardTable';
+
 
 import styles from './AccountTableList.less';
+import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 
 const FormItem = Form.Item;
 const { Option } = Select;
@@ -451,7 +452,7 @@ export default class TableList extends PureComponent {
     };
 
     return (
-      <PageHeaderLayout>
+      <PageHeaderWrapper>
         <Card bordered={false}>
           <div className={styles.tableList}>
             {/* <div className={styles.tableListForm}>{this.renderForm()}</div> */}
@@ -480,7 +481,7 @@ export default class TableList extends PureComponent {
           </div>
         </Card>
         <CreateAccount {...parentMethods} modalVisible={modalVisible} />
-      </PageHeaderLayout>
+      </PageHeaderWrapper>
     );
   }
 }

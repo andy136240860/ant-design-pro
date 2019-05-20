@@ -25,11 +25,11 @@ import {
   Collapse,
   Anchor,
 } from 'antd';
-import Ellipsis from 'components/Ellipsis';
+import Ellipsis from '@/components/Ellipsis';
 import { connect } from 'dva';
 import moment from 'moment';
 import { routerRedux } from 'dva/router';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+
 
 // 个人基本信息一些配置
 import {
@@ -68,6 +68,7 @@ import Iframe from './components/iframe/index';
 import SelectItem from './components/selectItem/index';
 
 import styles from './style.less';
+import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 const { TextArea } = Input;
 const { RangePicker } = DatePicker;
 const { Dragger } = Upload;
@@ -116,7 +117,7 @@ export default class Detail extends PureComponent {
 
     return (
       // Industry
-      <PageHeaderLayout title={'复制上传'}>
+      <PageHeaderWrapper title={'复制上传'}>
         <Form layout="vertical">
           <Card
             // title="评价"
@@ -133,7 +134,7 @@ export default class Detail extends PureComponent {
             </Button>
           </Card>
         </Form>
-      </PageHeaderLayout>
+      </PageHeaderWrapper>
     );
   }
 }

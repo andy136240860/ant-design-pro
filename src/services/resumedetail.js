@@ -5,7 +5,7 @@ import request from '../utils/request';
 export async function copyup(params) {
   return request('/api/resume/texttoword', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 
@@ -22,7 +22,7 @@ export async function getDetail(params) {
 export async function save(params) {
   return request('/api/resume', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 
@@ -38,14 +38,14 @@ export async function parse(params) {
   var arr = ['http://121.42.144.76:8101/resume/parse'];
   return request(arr, {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 // 更新简历
 export async function upDate(params) {
   return request('/api/resume/alertresume', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 
@@ -53,7 +53,7 @@ export async function upDate(params) {
 export async function postEvaluate(params) {
   return request(`/api/resume/evaluate`, {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 // 获取评价
@@ -73,7 +73,7 @@ export async function amend(params) {
 export async function downloadReport(params) {
   return request('/api/operateresume/dlresume', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 //获取code list
@@ -84,7 +84,7 @@ export async function getColdList(params) {
 export async function coldList(params) {
   return request('/api/coldlist', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 //删除code list

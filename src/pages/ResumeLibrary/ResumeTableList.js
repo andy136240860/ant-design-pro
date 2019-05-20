@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'dva';
 import { routerRedux } from 'dva/router';
 import moment from 'moment';
+import router from 'umi/router';
 import {
   Row,
   Col,
@@ -92,7 +93,6 @@ export default class TableList extends PureComponent {
       ...formValues,
       ...filters,
       desc: 2,
-      
     };
     // TODO:
     dispatch({
@@ -116,10 +116,9 @@ export default class TableList extends PureComponent {
   viewResumeDetail = id => {
     const data =id;
     if(data.isShow == 0){
-      window.open(`/resumetablelist/pooldetails/detail/${data.id}/3`)
-      // this.props.dispatch(routerRedux.push(`/resumetablelist/pooldetails/detail/${data.id}/3`));
+      router.push(`/resumes/${data.id}/edit`)
     }else{
-      window.open(`/resumetablelist/pooldetails/view/${data.id}`)
+      router.push(`/resumes/${data.id}`)
       // this.props.dispatch(routerRedux.push(`/resumetablelist/pooldetails/view/${data.id}`));
     }
 

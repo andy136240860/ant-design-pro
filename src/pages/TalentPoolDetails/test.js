@@ -25,7 +25,7 @@ import {
   Collapse,
   Anchor,
 } from 'antd';
-import Ellipsis from 'components/Ellipsis';
+import Ellipsis from '@/components/Ellipsis';
 import { connect } from 'dva';
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 import moment from 'moment';
@@ -59,7 +59,7 @@ import {
   reCityHope,
   checkRequired,
 } from '../../utils/info';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+
 import { geocity } from '../../utils/city';
 import { jonInfo } from '../../utils/jonInfo';
 import { ConcurrentRequest } from '../../utils/ConcurrentRequest';

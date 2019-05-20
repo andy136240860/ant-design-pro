@@ -21,12 +21,13 @@ import {
   Badge,
   Divider,
 } from 'antd';
-import StandardTable from 'components/StandardTable';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+import StandardTable from '@/components/StandardTable';
+
 
 import styles from './ProjectResumeTableList.less';
 import { retry } from 'rxjs/operator/retry';
 import SearchForm from '../ResumeLibrary/Components/SearchForm'
+import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 
 var thispagination = {};
 
@@ -330,7 +331,7 @@ export default class ProjectAddResumeDrawerList extends PureComponent {
       },
     ];
     return (
-      <PageHeaderLayout title="">
+      <PageHeaderWrapper title="">
         <Card bordered={false}>
           <div className={styles.tableList}>
             <SearchForm searchFuc={this.handleSearch} />
@@ -357,7 +358,7 @@ export default class ProjectAddResumeDrawerList extends PureComponent {
             />
           </div>
         </Card>
-      </PageHeaderLayout>
+      </PageHeaderWrapper>
     );
   }
 }

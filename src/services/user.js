@@ -11,7 +11,7 @@ export async function queryCurrent() {
 export async function resetPwd(params) {
   return request('/api/user/reset', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 
@@ -19,21 +19,21 @@ export async function resetPwd(params) {
 export async function checkuser(params) {
   return request('/api/checkuser', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 
 export async function register(params) {
   return request('/api/register', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 
 export async function updateUser(params) {
   return request('/api/alertaccount', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 
@@ -41,7 +41,7 @@ export async function updateUser(params) {
 export async function enableUser(params) {
   return request('/api/updateuser ', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 

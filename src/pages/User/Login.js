@@ -83,7 +83,7 @@ class LoginPage extends Component {
               !submitting &&
               this.renderMessage(formatMessage({ id: 'app.login.message-invalid-credentials' }))}
             <UserName
-              name="userName"
+              name="username"
               placeholder={`${formatMessage({ id: 'app.login.userName' })}: admin or user`}
               rules={[
                 {
@@ -107,7 +107,7 @@ class LoginPage extends Component {
               }}
             />
           </Tab>
-          <Tab key="mobile" tab={formatMessage({ id: 'app.login.tab-login-mobile' })}>
+          {/* <Tab key="mobile" tab={formatMessage({ id: 'app.login.tab-login-mobile' })}>
             {login.status === 'error' &&
               login.type === 'mobile' &&
               !submitting &&
@@ -142,7 +142,7 @@ class LoginPage extends Component {
                 },
               ]}
             />
-          </Tab>
+          </Tab> */}
           <div>
             <Checkbox checked={autoLogin} onChange={this.changeAutoLogin}>
               <FormattedMessage id="app.login.remember-me" />

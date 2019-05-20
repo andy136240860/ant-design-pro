@@ -2,7 +2,6 @@ import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'dva';
 import moment from 'moment';
 import { routerRedux } from 'dva/router';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import styles from './view.less';
 
 import {
@@ -25,7 +24,7 @@ import {
     InputNumber,
     Popconfirm,
 } from 'antd';
-import Ellipsis from 'components/Ellipsis';
+import Ellipsis from '@/components/Ellipsis';
 
 const { TextArea } = Input;
 const { RangePicker } = DatePicker;
@@ -283,7 +282,7 @@ export default class Detail extends PureComponent {
     render() {
         return (
             // Industry
-            <PageHeaderLayout title='查看详情'>
+            <PageHeaderWrapper title='查看详情'>
                 <Form layout="vertical">
                     <Affix offsetTop={10} style={{background:'#fff',paddingTop:'20px'}}>
 
@@ -338,7 +337,7 @@ export default class Detail extends PureComponent {
 
                 </Form>
                 {this.renderDrawer()}
-            </PageHeaderLayout>
+            </PageHeaderWrapper>
         );
     }
     showDrawer = e => {

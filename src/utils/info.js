@@ -388,7 +388,7 @@ export function routerMap(paramsObject) {
       obj.type = params.typeId;
       obj.isNew = false;
     } else if (params.typeId == 5) {
-      obj.backUrl = '/#/project/projectresumelist/';
+      obj.backUrl = '/#/projects/';
       obj.subTitle = '编辑人才信息至';
       obj.type = params.typeId;
       obj.isNew = false;

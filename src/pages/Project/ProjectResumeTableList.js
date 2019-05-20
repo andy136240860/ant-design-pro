@@ -25,8 +25,8 @@ import {
   Cascader,
   Radio
 } from 'antd';
-import StandardTable from 'components/StandardTable';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+import StandardTable from '@/components/StandardTable';
+
 import { processCon } from '../../utils/processConfig';
 import styles from './ProjectResumeTableList.less';
 import { retry } from 'rxjs/operator/retry';
@@ -38,6 +38,7 @@ import { NotificationCenter } from '../../utils/NotificationCenter';
 import { GetQueryString } from '../../utils/info';
 
 import ModlesProcess from './Components/processModel';
+import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 const FormItem = Form.Item;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
@@ -746,7 +747,7 @@ export default class TableList extends PureComponent {
     };
 
     return (
-      <PageHeaderLayout title="" children={description}>
+      <PageHeaderWrapper title="" children={description}>
         <Card bordered={false}>
           <div className={styles.tableList}>
             <div className={styles.tableListOperator}>
@@ -815,7 +816,7 @@ export default class TableList extends PureComponent {
           </Modal>
         </Form>
         <CreateForm {...parentMethods} modalVisible={modalVisible} />
-      </PageHeaderLayout>
+      </PageHeaderWrapper>
     );
   }
 }

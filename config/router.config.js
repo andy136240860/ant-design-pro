@@ -291,7 +291,7 @@ export default [
         ],
       },
       {
-        name: '人才库',
+        name: '人才管理',
         icon: 'highlight',
         path: '/resumes',
         routes: [
@@ -324,6 +324,39 @@ export default [
             path: '/resumes/dev',
             name: '开发简历',
             component: './ResumeLibrary/ResumeTableListDev',
+          },
+          {
+            path: '/resumes/:id/edit',
+            component: './TalentPoolDetails/edit',
+          },
+          {
+            path: '/resumes/:id/',
+            component: './TalentPoolDetails/view',
+          },
+        ],
+      },{
+        name: '项目管理',
+        icon: 'highlight',
+        path: '/projects',
+        routes: [
+          {
+            path: '/projects/my',
+            name: '我的项目',
+            component: './Project/ProjectTableList',
+          },
+          {
+            path: '/projects/inprogress',
+            name: '正在进展的项目',
+            component: './Project/ProjectTableList',
+          },
+          {
+            path: '/projects/all',
+            name: '全部项目',
+            component: './Project/ProjectTableList',
+          },
+          {
+            path: '/projects/:id',
+            component: './Project/ProjectResumeTableList',
           },
         ],
       },
